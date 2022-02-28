@@ -1,0 +1,6 @@
+---
+ - name: Installation de Vim
+   apt:
+     name: vim
+     state: present
+

@@ -1,0 +1,8 @@
+---    
+- name: "deploiment apache et php"
+  hosts:  host_web
+  vars_files:
+    - ../group_vars/all.yml
+  roles:
+    - { role: Terraform-Network }
+

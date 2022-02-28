@@ -1,0 +1,18 @@
+---
+ - name: Installation  php
+   become_user: "{{ user }}"
+   apt:
+     name: "php"
+     state: latest
+
+
+ - name: copy du phpindex
+   template:
+      src: phpindex.php.j2
+      dest: /var/www/index.php
+ 
+ - name: copy du phpinfo
+   template:
+      src: phpinfo.php.j2
+      dest: /var/www/info.php
+

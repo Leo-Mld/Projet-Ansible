@@ -1,0 +1,8 @@
+
+test de connecxion
+
+host_web
+ansible host_web -m ping -u root
+
+host_db
+ansible host_db -m ping -u root

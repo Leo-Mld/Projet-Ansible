@@ -1,0 +1,28 @@
+---
+ - name: Installation d'Apache
+   become_user: "{{ user }}"
+   apt:
+     name: "apache2"
+     state: present
+   register: apacheversion
+ 
+ - name: apache version
+   debug: 
+      msg: "{{ apacheversion }}" 
+
+ - name: copy conf apache
+   template:
+      src: apache.conf.j2
+      dest: /etc/apache2/apache.conf
+   notify:
+       - Reboot apache
+
+
+ - name: Start apache
+   become_user: "{{ user }}"
+   service:
+      name: apache2
+      state: started
+      enabled: true
+
+

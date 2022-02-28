@@ -1,0 +1,9 @@
+---
+ - name: installation apache sur Debian
+   import_tasks: debian.yml
+   when: ansible_facts.lsb.release ==  '18.04'
+
+ - name: installation apache sur Redhat
+   import_tasks: debian.yml
+   when: ansible_facts.os_family ==  'Redhat'
+

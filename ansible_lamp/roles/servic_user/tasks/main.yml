@@ -1,0 +1,13 @@
+---
+  - name: "Creating user from secret.yml"
+    user:
+      name: "{{item.name}}"
+      password: "{{ item.passwd }}"
+      system: yes
+      groups: sudo
+      append: no
+      create_home: no
+
+    loop:
+      - name: "{{user}}"
+        passwd: "{{ pass | password_hash('sha512') }}"

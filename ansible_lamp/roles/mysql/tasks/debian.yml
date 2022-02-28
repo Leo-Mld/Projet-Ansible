@@ -1,0 +1,13 @@
+---
+ - name: Installation  php
+   become_user: "{{ user }}"
+   apt:
+     name: "mysql-server"
+     state: present
+
+
+ - name: Start the MySQL service
+   action: service name=mysql state=started
+ 
+ 
+
